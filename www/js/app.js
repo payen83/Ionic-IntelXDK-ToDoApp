@@ -12,15 +12,21 @@ angular.module('myApp', ['ionic'])
     
     $scope.todo = {};
     $scope.todos = [];
+    var todos = localStorage.getItem('todos');
+    if (todos != undefined){
+        $scope.todos = JSON.parse(todos);
+    }
     $scope.addToDo = function($event){
         activate_page("#create_edit");
     }
     
     $scope.saveToDo = function($event){
         //console.log($scope.todo);
+        $scope.todo.id = $scope.uuid();
         $scope.todos.push($scope.todo);
         localStorage.setItem('todos', JSON.stringify($scope.todos));
-    
+        $scope.todo = {};
+        activate_page("#mainpage");
     }
     
 })

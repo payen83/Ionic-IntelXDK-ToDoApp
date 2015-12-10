@@ -75,10 +75,10 @@
         <div class="upage" id="mainpage">
             <div class="upage-outer fixed-header-footer">
                 <div class="upage-content ac0 content-area left" id="page_58_29">
-                    <div class="list card">
+                    <div class="list card" ng-repeat="item in todos track by item.id">
                         <div class="item item-body">
-                            <h4>Title</h4>
-                            <p>Description</p>
+                            <h4>{{item.title}}</h4>
+                            <p>{{item.description}}</p>
                         </div>
                         <div class="item tabs tabs-secondary tabs-icon-left">
                             <a href="#" class="tab-item">
