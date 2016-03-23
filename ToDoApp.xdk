@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "de84a160-7446-42dc-8d42-afec64853bac",
-      "lastModifiedDate": 1449642399321,
+      "lastModifiedDate": 1455332289981,
       "creationDate": 1449637637765
     },
     "XDK-app-designer": "true",
@@ -18,41 +18,6 @@
     "serviceMethods": [],
     "cordovaPluginsDirectory": "plugins",
     "cordovaPlugins": [
-      {
-        "id": "cordova-plugin-statusbar",
-        "name": "StatusBar",
-        "version": "1.0.0",
-        "originType": "cordova.io",
-        "origin": "cordova-plugin-statusbar",
-        "gitref": "",
-        "paramvals": {},
-        "selectedState": "Included",
-        "dependsOn": [],
-        "topLevel": true,
-        "cordovaVersion": ">=3.0.0",
-        "permissions": {},
-        "description": "Cordova StatusBar Plugin",
-        "data": {},
-        "dependedBy": [],
-        "checksum": "b4e7aac6"
-      },
-      {
-        "id": "cordova-plugin-device",
-        "version": "1.0.1",
-        "selectedState": "Included",
-        "data": {},
-        "paramvals": {},
-        "dependsOn": [],
-        "dependedBy": [],
-        "originType": "cordova.io",
-        "origin": "cordova-plugin-device",
-        "permissions": {},
-        "topLevel": true,
-        "gitref": "",
-        "name": "Device",
-        "description": "Cordova Device Plugin",
-        "checksum": "adfc61ba"
-      },
       {
         "id": "cordova-plugin-splashscreen",
         "version": "2.1.0",
@@ -68,7 +33,118 @@
         "gitref": "",
         "name": "Splashscreen",
         "description": "Cordova Splashscreen Plugin",
-        "checksum": "170efb68"
+        "checksum": "170efb68",
+        "cordovaVersion": ">=3.6.0"
+      },
+      {
+        "id": "cordova-plugin-dialogs",
+        "name": "Notification",
+        "version": "1.2.0",
+        "originType": "cordova.io",
+        "origin": "cordova-plugin-dialogs",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/cordova-plugin-dialogs",
+        "selectedState": "Included",
+        "checksum": "1af74557",
+        "dependsOn": [],
+        "topLevel": true,
+        "permissions": {},
+        "description": "Cordova Notification Plugin",
+        "data": {},
+        "dependedBy": [],
+        "cordovaVersion": ">=3.6.0"
+      },
+      {
+        "id": "cordova-plugin-statusbar",
+        "name": "StatusBar",
+        "version": "2.0.0",
+        "originType": "cordova.io",
+        "origin": "cordova-plugin-statusbar",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/cordova-plugin-statusbar",
+        "selectedState": "Included",
+        "checksum": "b92cbbef",
+        "dependsOn": [],
+        "topLevel": true,
+        "cordovaVersion": ">=3.0.0",
+        "permissions": {},
+        "description": "Cordova StatusBar Plugin",
+        "data": {},
+        "dependedBy": []
+      },
+      {
+        "id": "cordova-plugin-device",
+        "name": "Device",
+        "version": "1.1.0",
+        "originType": "cordova.io",
+        "origin": "cordova-plugin-device",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/cordova-plugin-device",
+        "selectedState": "Included",
+        "checksum": "1eae5d64",
+        "dependsOn": [],
+        "topLevel": true,
+        "permissions": {},
+        "description": "Cordova Device Plugin",
+        "data": {},
+        "dependedBy": [
+          "de.appplant.cordova.plugin.local-notification"
+        ],
+        "cordovaVersion": ">=3.6.0"
+      },
+      {
+        "id": "cordova-plugin-app-event",
+        "name": "Application Events",
+        "version": "1.1.0",
+        "originType": "cordova.io",
+        "origin": "cordova-plugin-app-event",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/cordova-plugin-app-event",
+        "selectedState": "Included",
+        "checksum": "fb7c2da7",
+        "dependsOn": [],
+        "topLevel": false,
+        "cordovaVersion": ">=3.6.0",
+        "author": "Sebastián Katzer",
+        "permissions": {},
+        "description": "Broadcasts various events to make them available for 3rd parties",
+        "data": {},
+        "dependedBy": [
+          "de.appplant.cordova.plugin.local-notification"
+        ],
+        "custom": "true"
+      },
+      {
+        "id": "de.appplant.cordova.plugin.local-notification",
+        "name": "LocalNotification",
+        "version": "0.8.4",
+        "originType": "local",
+        "origin": "/Users/MacFerdy/Downloads/cordova-plugin-local-notifications-master",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/de.appplant.cordova.plugin.local-notification",
+        "selectedState": "Included",
+        "checksum": "9f3812e4",
+        "dependsOn": [
+          "cordova-plugin-device",
+          "cordova-plugin-app-event"
+        ],
+        "topLevel": true,
+        "cordovaVersion": ">=3.6.0",
+        "author": "Sebastián Katzer",
+        "permissions": {
+          "android:name": [
+            "android.permission.RECEIVE_BOOT_COMPLETED",
+            "android.permission.WRITE_EXTERNAL_STORAGE"
+          ]
+        },
+        "description": "The plugin supports scheduling local notifications in various ways with a single interface. It also allows you to update, clear or cancel them. There are different interfaces to query for local notifications and a complete set of events to hook into the life cycle of local notifications. To get a deep overview we recommend to read about all the topics in our wiki and try out the Kitchen Sink App",
+        "data": {},
+        "dependedBy": []
       }
     ],
     "buildConfigurations": {
@@ -94,7 +170,7 @@
         },
         "icons_": [],
         "splashes_": [],
-        "addlPermissions_": "",
+        "addlPermissions_": "cordova.plugins.notification.local",
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "15",
@@ -114,7 +190,7 @@
         },
         "isActive_": true,
         "appName_": "ToDoApp",
-        "appID_": "xdk.intel.blank.ad.template",
+        "appID_": "xdk.intel.blank.ad.todo9797",
         "appAccess_": {
           "mode": "legacy",
           "network": [
@@ -125,13 +201,13 @@
         },
         "icons_": [],
         "splashes_": [],
-        "addlPermissions_": "",
+        "addlPermissions_": "cordova.plugins.notification.local",
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "14",
         "appVersion_": "0.0.1",
         "appAuthor_": "Intel XDK",
-        "appDescription_": "Template to develop a Cordova mobile web app using the App Designer UI editor.",
+        "appDescription_": "ToDo App",
         "appVersionCode_": "1"
       },
       "iOS": {

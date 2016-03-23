@@ -60,6 +60,7 @@
         <script src="xdk/init-dev.js"></script>
         <!-- normalizes device and document ready events, see file for details -->
         <script type="application/javascript" src="ionic/js/ionic.bundle.js"></script>
+        <script type="application/javascript" src="js/ng-cordova.min.js"></script>
         <script type="application/javascript" src="lib/jquery.min.js"></script>
         <script type="application/javascript" src="marginal/marginal-position.js"></script>
         <script src="js/app.js"></script>
@@ -81,10 +82,11 @@
                             <p>{{item.description}}</p>
                         </div>
                         <div class="item tabs tabs-secondary tabs-icon-left">
-                            <a href="#" class="tab-item">
+                            <a href="#" class="tab-item" ng-show="item.hasAlarm">
                                 <i class="icon ion-clock"></i>
+                                {{item.datetime}}
                             </a>
-                            <a href="#" class="tab-item">
+                            <a href="#" class="tab-item" ng-click="editTodo(item)">
                                 <i class="icon ion-edit"></i>
                                 Edit
                             </a>
@@ -111,25 +113,22 @@
                     </label>
                     <li class="item item-toggle widget uib_w_8 d-margins" data-uib="ionic/toggle" data-ver="0">Alarm
                         <label class="toggle toggle-calm">
-                            <input type="checkbox">
+                            <input type="checkbox" ng-model="todo.hasAlarm">
                             <div class="track">
                                 <div class="handle"></div>
                             </div>
                         </label>
                     </li>
-                    <label class="item item-input widget uib_w_9 d-margins" data-uib="ionic/input" data-ver="0"><span class="input-label">Date</span>
-                        <input type="date" placeholder="Placeholder" ng-model="todo.date">
+                    <label class="item item-input widget uib_w_10 d-margins" data-uib="ionic/input" data-ver="0" ng-show="todo.hasAlarm"><span class="input-label">Date &amp; Time</span>
+                        <input type="datetime-local" placeholder="yyyy-MM-ddTHH:mm:ss" ng-model="todo.datetime">
                     </label>
-                    <label class="item item-input widget uib_w_10 d-margins" data-uib="ionic/input" data-ver="0"><span class="input-label">Time</span>
-                        <input type="time" placeholder="Placeholder" ng-model="todo.time">
-                    </label>
-                    <button class="button widget uib_w_11 d-margins ion button-assertive" data-uib="ionic/button" data-ver="0">Delete</button>
+                    <button class="button widget uib_w_11 d-margins ion button-assertive" data-uib="ionic/button" data-ver="0" ng-show="showDeleteButton" ng-click="deleteToDo($event)">Delete</button>
                 </div>
                 <ion-header-bar class="bar inner-element uib_w_3 bar-balanced bar-header" data-uib="ionic/header" data-ver="0" align-title="center">
                     <div class="buttons widget-container content-area horiz-area wrapping-col">
                         <button class="button widget uib_w_5 d-margins ion ion-android-arrow-back icon-left" data-uib="ionic/button" data-ver="0">Back</button>
                     </div>
-                    <h1 class="title">Create/Edit To do</h1>
+                    <h1 class="title">{{headerTitle}}</h1>
                     <div class="buttons widget-container content-area horiz-area wrapping-col">
                         <button class="button widget uib_w_4 d-margins" data-uib="ionic/button" data-ver="0" ng-click="saveToDo($event)">Save</button>
                     </div>
